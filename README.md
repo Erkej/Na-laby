@@ -16,5 +16,11 @@ Celem projektu jest zapoznanie się z podstawami systemu ROS 2, w szczególnośc
 
 ---
 
+## ▶️ Uruchomienie paczki
+Uruchomienie paczki następuje automatycznie za pomocą dockerfile'a. Wystarczy jedynie wpisać komendę:
+docker run -it --rm --net=host --privileged --env="DISPLAY" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" -v "$(pwd):/src" camera_subscriber bash
+
+---
+
 ## 📁 Struktura repozytorium
 
