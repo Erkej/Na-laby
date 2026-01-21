@@ -7,7 +7,7 @@ from cv_bridge import CvBridge
 import cv2
 import numpy as np
 
-class camera_subs(Node):
+class camera_node(Node):
     def __init__(self):
         super().__init__('camera_subscriber')
         self.window_name = "camera"
@@ -57,9 +57,9 @@ class camera_subs(Node):
         cv2.imshow(self.window_name, frame)
         cv2.waitKey(1)
 
-def main():
-    rclpy.init()
-    node = camera_subs()
+def main(args=None):
+    rclpy.init(args=args)
+    node = camera_node()
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()

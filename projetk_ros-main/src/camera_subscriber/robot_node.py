@@ -5,10 +5,10 @@ from geometry_msgs.msg import Point
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 from builtin_interfaces.msg import Duration
 
-class robot_cont(Node):
+class robot_node(Node):
     def __init__(self):
-        super().__init__('robot_contloler')
-        self.window_name = "robot_contloler"
+        super().__init__('robot_controler')
+        self.window_name = "robot_controler"
         self.subscription = self.create_subscription(Point,'/point',self.listener_callback,10)
         self.subscription 
         self.publisher_ = self.create_publisher(JointTrajectory, "/joint_trajectory_controller/joint_trajectory", 10)
@@ -37,11 +37,11 @@ class robot_cont(Node):
         self.traj.points = [point]
         self.publisher_.publish(self.traj)
 
-def main():
-    rclpy.init()
-    cont_node = robot_cont()
-    rclpy.spin(cont_node)
-    cont_node.destroy_node()
+def main(args=None):
+    rclpy.init(args=args)
+    node2 = robot_node()
+    rclpy.spin(node2)
+    node2.destroy_node()
     rclpy.shutdown()
 if __name__ == '__main__':
     main()

@@ -5,7 +5,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     usb_cam_cfg = os.path.join(
-        get_package_share_directory("ros_project"),
+        get_package_share_directory("camera_subscriber"),
         'config',
         'params.yaml'
     )
@@ -26,14 +26,14 @@ def generate_launch_description():
 
         ),
        Node(
-            package='ros_project',
-            executable='camera_subs',
-            name='camera_subs'
+            package='camera_subscriber',
+            executable='camera_node',
+            name='camera_node'
         ),
         Node(
-            package='ros_project',
-            executable='robot_cont',
-            name='robot_cont',
+            package='camera_subscriber',
+            executable='robot_node',
+            name='robot_node',
             output='screen'
         )
     ])

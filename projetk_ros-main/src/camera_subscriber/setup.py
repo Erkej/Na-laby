@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 import os              
 from glob import glob
 
-package_name = 'ros_project'
+package_name = 'camera_subscriber'
 
 setup(
     name=package_name,
@@ -27,8 +27,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'robot_cont = ros_project.robot_cont:main',
-            'camera_subs = ros_project.camera_subs:main'
+            'robot_node = camera_subscriber.robot_node:main',
+            'camera_node = camera_subscriber.camera_node:main'
         ],
     },
 )
